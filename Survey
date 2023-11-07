@@ -1,0 +1,52 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Question</title>
+    <script>
+        function addQuestion() {
+            var question = document.getElementById("question").value;
+            if (question.trim() === "") {
+                alert("Please enter a question!");
+                return;
+            }
+
+            var questionContainer = document.getElementById("questionContainer");
+            var questionDiv = document.createElement("div");
+            questionDiv.textContent = question;
+            questionContainer.appendChild(questionDiv);
+        }
+
+        function goToDifferentScreen() {
+           
+            window.location.href = "anotherpage.html";
+        }
+
+        function startSurvey() {
+            document.getElementById("startButton").style.display = "none";
+            document.getElementById("questionForm").style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Survey Creation Adminstration and Reporting </h1>
+  
+    <button id="startButton" onclick="startSurvey()">Start Survey</button>
+
+    <div id="questionForm" style="display: none;">
+        <label for="question">Enter your question:</label>
+        <input type="text" id="question">
+        <button onclick="addQuestion()">Add Question</button>
+       
+       
+        <div id="questionContainer">
+          
+        </div>
+        <h1>  </h1>
+        <button onclick="window.print()">Print</button>  
+    </div>
+</body>
+
+</html>
